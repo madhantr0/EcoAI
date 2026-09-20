@@ -1,0 +1,21 @@
+version: "3.9"
+services:
+  backend:
+    build: ./backend
+    ports: ["4000:4000"]
+    env_file: ./backend/.env
+    depends_on: [db]
+  frontend:
+    build: ./frontend
+    ports: ["3000:3000"]
+    env_file: ./frontend/.env.local
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: ecoai
+      POSTGRES_PASSWORD: ecoai_dev
+      POSTGRES_DB: ecoai
+    ports: ["5432:5432"]
+    volumes: ["pgdata:/var/lib/postgresql/data"]
+volumes:
+  pgdata:

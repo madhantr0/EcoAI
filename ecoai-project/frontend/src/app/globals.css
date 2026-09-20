@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+:root {
+  --bg: #0B120B;
+  --fg: #F8F9FA;
+  --accent: #D4AF37;
+}
+
+html, body { height: 100%; }
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.font-serif { font-family: 'Playfair Display', Georgia, serif; }
+
+::selection { background: rgba(212,175,55,0.35); }
+
+.glass {
+  background: rgba(20, 40, 28, 0.45);
+  backdrop-filter: blur(16px) saturate(140%);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
+  border: 1px solid rgba(212, 175, 55, 0.12);
+}
+
+.glass-hi {
+  background: rgba(30, 55, 38, 0.55);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(212, 175, 55, 0.22);
+}
+
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(212,175,55,0) 0%,
+    rgba(212,175,55,0.55) 50%,
+    rgba(212,175,55,0) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2.4s infinite;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Mapbox overrides for the luxury dark map */
+.mapboxgl-popup-content {
+  background: rgba(11,18,11,0.92) !important;
+  color: #F8F9FA !important;
+  border: 1px solid rgba(212,175,55,0.25) !important;
+  border-radius: 12px !important;
+  padding: 14px 16px !important;
+  font-family: 'Inter', sans-serif !important;
+}
+.mapboxgl-popup-tip { display: none !important; }
